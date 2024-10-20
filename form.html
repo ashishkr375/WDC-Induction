@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WDC Registration Form - 2024</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center p-4">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
+    <h2 class="text-2xl font-bold text-center mb-6">WDC Registration Form</h2>
+
+    <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbwCN5CBqrosSZ8xf3r7Sl_LTjCysYcMqy1SebxPSMAevcbVvRXM13Vz1wK_f9e0W4ng/exec" method="POST" class="space-y-6">
+
+      <!-- Full Name -->
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Full Name*</label>
+        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <!-- Branch -->
+      <div>
+        <label for="branch" class="block text-sm font-medium text-gray-700">Branch*</label>
+        <select id="branch" name="branch" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" onchange="toggleOtherBranchField()">
+          <option value="">Select your branch</option>
+          <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+          <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+          <option value="Electrical Engineering">Electrical Engineering</option>
+          <option value="Mechanical Engineering">Mechanical Engineering</option>
+          <option value="Civil Engineering">Civil Engineering</option>
+          <option value="Mathematics and Computing">Mathematics and Computing</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="otherBranch" name="otherBranch" class="mt-1 hidden block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Please specify" />
+      </div>
+
+      <!-- Year -->
+      <div>
+        <label for="year" class="block text-sm font-medium text-gray-700">Year*</label>
+        <select id="year" name="year" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+          <option value="">Select your year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+        </select>
+      </div>
+
+      <!-- Institute Roll No -->
+      <div>
+        <label for="rollNo" class="block text-sm font-medium text-gray-700">Institute Roll No*</label>
+        <input type="text" id="rollNo" name="rollNo" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <!-- Institute Email ID -->
+      <div>
+        <label for="instituteEmail" class="block text-sm font-medium text-gray-700">Institute Email ID*</label>
+        <input type="email" id="instituteEmail" name="instituteEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <!-- Personal Email ID -->
+      <div>
+        <label for="personalEmail" class="block text-sm font-medium text-gray-700">Personal Email ID*</label>
+        <input type="email" id="personalEmail" name="personalEmail" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <!-- Primary Contact No -->
+      <div>
+        <label for="contactNo" class="block text-sm font-medium text-gray-700">Contact No (preferably WhatsApp)*</label>
+        <input type="tel" id="contactNo" name="contactNo" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+      
+      <!-- Additional Contact No -->
+      <div id="additionalContactNo" class="hidden">
+        <label for="additionalContactNo" class="block text-sm font-medium text-gray-700">Additional Contact No</label>
+        <input type="tel"  name="additionalContactNo" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+      
+      <button type="button" id="addContactBtn" class="text-blue-500" onclick="addAdditionalContact()">Add Another Contact Number</button>
+
+      <!-- LinkedIn Profile -->
+      <div>
+        <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn Profile</label>
+        <input type="url" id="linkedin" name="linkedin" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <!-- GitHub Profile -->
+      <div>
+        <label for="github" class="block text-sm font-medium text-gray-700">GitHub Profile</label>
+        <input type="url" id="github" name="github" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md">Register</button>
+    </form>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="modal hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div class="modal-content bg-white p-6 rounded-md">
+        <span class="close-button cursor-pointer text-gray-500" onclick="closeModal()">&times;</span>
+        <h2 class="text-red-700">Thank You for Registration!</h2>
+        <p class="text-neutral-700">Your registration has been received. We will get back to you shortly!</p>
+        <div class="text-center pt-5">
+          <a href="/" class="cta-button bg-green-500 text-white text-sm md:text-lg font-semibold py-3 px-6 rounded-full transition-transform transform duration-300">
+            Go to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleOtherBranchField() {
+      const branchSelect = document.getElementById('branch');
+      const otherBranchInput = document.getElementById('otherBranch');
+      if (branchSelect.value === 'Other') {
+        otherBranchInput.classList.remove('hidden');
+        otherBranchInput.required = true;
+      } else {
+        otherBranchInput.classList.add('hidden');
+        otherBranchInput.required = false;
+        otherBranchInput.value = '';
+      }
+    }
+
+    function addAdditionalContact() {
+      const additionalContactInput = document.getElementById('additionalContactNo');
+      additionalContactInput.classList.toggle('hidden');
+      additionalContactInput.required = !additionalContactInput.classList.contains('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('thankYouModal').classList.add('hidden');
+      
+      window.location.href = '/';
+    }
+
+   
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      const requiredFields = this.querySelectorAll('[required]');
+      let allFilled = true;
+
+      requiredFields.forEach(function(field) {
+        if (!field.value) {
+          alert(`Please fill out the ${field.labels[0].innerText}`);
+          allFilled = false;
+        }
+      });
+
+      if (!allFilled) {
+        event.preventDefault();
+      } else {
+        event.preventDefault(); 
+        document.getElementById('thankYouModal').classList.remove('hidden');
+        
+        this.submit(); 
+      }
+    });
+  </script>
+</body>
+</html>

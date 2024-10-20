@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WDC NIT Patna - Induction 2024</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gradient-bg {
+      background: linear-gradient(45deg, #3b82f6, #9333ea, #f43f5e, #f59e0b);
+      background-size: 400% 400%;
+      animation: gradient-animation 10s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .cta-button:hover {
+      background-color: #22c55e;
+      transform: scale(1.05);
+    }
+
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1000; 
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0); 
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+        max-width: 500px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .close-button {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+  </style>
+</head>
+<body class="min-h-screen gradient-bg text-white flex flex-col items-center justify-center p-6">
+
+
+  <header class="text-center mb-10">
+    <h1 class="text-2xl md:text-5xl font-bold">Join the Web Development Cell</h1>
+    <p class="text-base md:text-lg mt-4">Shape the digital future of NIT Patna with innovation, creativity, and technology.</p>
+  </header>
+
+
+  <div class="max-w-5xl w-full">
+
+ 
+    <section class="mb-12">
+      <p class="text-center text-sm md:text-2xl">
+        At the Web Development Cell (WDC), we blend technical skills with innovation to manage the Institute's website, ensuring it's engaging and up-to-date. Become part of a dedicated team responsible for the digital identity of NIT Patna.
+      </p>
+    </section>
+
+
+    <section class="grid gap-10 sm:grid-cols-1 md:grid-cols-2 mb-12">
+   
+      <div class="role-card bg-white text-gray-800 p-8 rounded-lg shadow-lg border border-gray-200 transition-transform duration-300">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8M12 17v4m-6 0V3h12v18H6z" />
+          </svg>
+          <h3 class="text-xl md:text-2xl font-bold">Full-Stack Web Architect</h3>
+        </div>
+        <p class="text-sm md:text-lg">
+          We’re seeking developers experienced in full-stack web development. You'll handle tasks such as building scalable Next.js apps, managing databases, API integration, and optimizing both frontend and backend. Proficiency in the MERN stack, GitHub, and best coding practices is essential.
+        </p>
+      </div>
+
+   
+      <div class="role-card bg-white text-gray-800 p-8 rounded-lg shadow-lg border border-gray-200 transition-transform duration-300">
+        <div class="flex items-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-500 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422A12.042 12.042 0 0118 9M6 9l.84.578M6 12h.01M3.055 14.832A12.045 12.045 0 003 18a12.042 12.042 0 003.84-1.578L12 14zm0 0V6.23l6-3.26" />
+          </svg>
+          <h3 class="text-xl md:text-2xl font-bold">Creative UI/UX Designer</h3>
+        </div>
+        <p class="text-sm md:text-lg">
+          Are you a designer passionate about creating visually stunning user experiences? Join us as a UI/UX Designer to craft intuitive and engaging interfaces that make our web platforms shine. Your work will have a direct impact on how users interact with NIT Patna’s digital platforms.
+        </p>
+      </div>
+    </section>
+
+
+    <div class="text-center">
+      <button class="cta-button bg-green-500 text-white text-lg font-semibold py-3 px-6 rounded-full transition-transform transform duration-300">
+        Click Here for Registration
+      </button>
+    </div>
+  </div>
+
+  
+  <div id="myModal" class="modal text-center">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 class="text-red-700">Important Notice</h2>
+        <p class="text-neutral-700">Fill the form properly and only fill once. Multiple responses might reject your application!</p>
+        
+    <div class="text-center pt-5">
+        <a href="/form.html" class="cta-button bg-green-500 text-white text-sm md:text-lg font-semibold py-3 px-6 rounded-full transition-transform transform duration-300">
+         Continue to Registration
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-16 text-center w-full">
+    <h2 class="text-3xl font-semibold mb-6">Have Any Queries?</h2>
+    <p class="text-base">Feel free to reach out to us:</p>
+    <div class="mt-4 space-y-4">
+      <p class="text-lg">
+        <strong>Ashish Kumar :</strong> 
+        <a href="mailto:ashishk.dd22.cs@nitp.ac.in" class="underline">ashishk.dd22.cs@nitp.ac.in</a>
+      </p>
+      <p class="text-lg">
+        <strong>Lakshya Parashar :</strong>
+        <a href="mailto:lakshyap.ug22.cs@nitp.ac.in" class="underline">lakshyap.ug22.cs@nitp.ac.in</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-12 text-center text-sm">
+    <p>&copy; 2024 Web Development Cell, NIT Patna. All Rights Reserved.</p>
+  </footer>
+
+
+  <script>
+    const ctaButton = document.querySelector('.cta-button');
+    const modal = document.getElementById('myModal');
+    const closeButton = document.querySelector('.close-button');
+
+    
+    ctaButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+  
+    closeButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+  </script>
+</body>
+</html>
